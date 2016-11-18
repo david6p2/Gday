@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F83A70C5580E15A8F221F97 /* Pods_Gday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1652DB40BBD1193A18E63D52 /* Pods_Gday.framework */; };
 		FB1288FF1DDE61BC008C0D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1288FE1DDE61BC008C0D1C /* AppDelegate.swift */; };
-		FB1289011DDE61BC008C0D1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289001DDE61BC008C0D1C /* ViewController.swift */; };
 		FB1289041DDE61BC008C0D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1289021DDE61BC008C0D1C /* Main.storyboard */; };
 		FB1289061DDE61BC008C0D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1289051DDE61BC008C0D1C /* Assets.xcassets */; };
 		FB1289091DDE61BC008C0D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1289071DDE61BC008C0D1C /* LaunchScreen.storyboard */; };
 		FB1289141DDE61BC008C0D1C /* GdayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289131DDE61BC008C0D1C /* GdayTests.swift */; };
 		FB12891F1DDE61BC008C0D1C /* GdayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12891E1DDE61BC008C0D1C /* GdayUITests.swift */; };
+		FB12892E1DDE6568008C0D1C /* GdaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12892D1DDE6568008C0D1C /* GdaysViewController.swift */; };
+		FB1289311DDE6D49008C0D1C /* Gday.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289301DDE6D49008C0D1C /* Gday.swift */; };
+		FB1289331DDE6D70008C0D1C /* GdayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289321DDE6D70008C0D1C /* GdayAPI.swift */; };
+		FB1289351DDE714D008C0D1C /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289341DDE714D008C0D1C /* Greeting.swift */; };
+		FB1289371DDE717A008C0D1C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289361DDE717A008C0D1C /* User.swift */; };
+		FB73DBF41DDF622100116AD0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF31DDF622100116AD0 /* Router.swift */; };
+		FB73DBF71DDF6E8B00116AD0 /* GdaysRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1652DB40BBD1193A18E63D52 /* Pods_Gday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC2CFE2E65283B2C43240A4 /* Pods-Gday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gday/Pods-Gday.debug.xcconfig"; sourceTree = "<group>"; };
+		87F4F8BEB9ABA54B8DBFDCE1 /* Pods-Gday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gday.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gday/Pods-Gday.release.xcconfig"; sourceTree = "<group>"; };
 		FB1288FB1DDE61BC008C0D1C /* Gday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1288FE1DDE61BC008C0D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB1289001DDE61BC008C0D1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB1289031DDE61BC008C0D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB1289051DDE61BC008C0D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1289081DDE61BC008C0D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +56,13 @@
 		FB12891A1DDE61BC008C0D1C /* GdayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GdayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB12891E1DDE61BC008C0D1C /* GdayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GdayUITests.swift; sourceTree = "<group>"; };
 		FB1289201DDE61BC008C0D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB12892D1DDE6568008C0D1C /* GdaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdaysViewController.swift; path = ViewControllers/GdaysViewController.swift; sourceTree = "<group>"; };
+		FB1289301DDE6D49008C0D1C /* Gday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gday.swift; path = Models/Gday.swift; sourceTree = "<group>"; };
+		FB1289321DDE6D70008C0D1C /* GdayAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdayAPI.swift; path = Models/GdayAPI.swift; sourceTree = "<group>"; };
+		FB1289341DDE714D008C0D1C /* Greeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Greeting.swift; path = Models/Greeting.swift; sourceTree = "<group>"; };
+		FB1289361DDE717A008C0D1C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		FB73DBF31DDF622100116AD0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Models/Server/Router.swift; sourceTree = "<group>"; };
+		FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdaysRequest.swift; path = Models/Server/GdaysRequest/GdaysRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F83A70C5580E15A8F221F97 /* Pods_Gday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +91,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A156F512D5A09D74F992FBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1652DB40BBD1193A18E63D52 /* Pods_Gday.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6ED068E8C143610826197B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BC2CFE2E65283B2C43240A4 /* Pods-Gday.debug.xcconfig */,
+				87F4F8BEB9ABA54B8DBFDCE1 /* Pods-Gday.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FB1288F21DDE61BC008C0D1C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +115,8 @@
 				FB1289121DDE61BC008C0D1C /* GdayTests */,
 				FB12891D1DDE61BC008C0D1C /* GdayUITests */,
 				FB1288FC1DDE61BC008C0D1C /* Products */,
+				BF6ED068E8C143610826197B /* Pods */,
+				2A156F512D5A09D74F992FBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +133,9 @@
 		FB1288FD1DDE61BC008C0D1C /* Gday */ = {
 			isa = PBXGroup;
 			children = (
+				FB12892F1DDE66A6008C0D1C /* Models */,
+				FB12892C1DDE6520008C0D1C /* ViewControllers */,
 				FB1288FE1DDE61BC008C0D1C /* AppDelegate.swift */,
-				FB1289001DDE61BC008C0D1C /* ViewController.swift */,
 				FB1289021DDE61BC008C0D1C /* Main.storyboard */,
 				FB1289051DDE61BC008C0D1C /* Assets.xcassets */,
 				FB1289071DDE61BC008C0D1C /* LaunchScreen.storyboard */,
@@ -125,6 +162,43 @@
 			path = GdayUITests;
 			sourceTree = "<group>";
 		};
+		FB12892C1DDE6520008C0D1C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB12892D1DDE6568008C0D1C /* GdaysViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FB12892F1DDE66A6008C0D1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB1289321DDE6D70008C0D1C /* GdayAPI.swift */,
+				FB73DBF21DDF61C100116AD0 /* Server */,
+				FB1289301DDE6D49008C0D1C /* Gday.swift */,
+				FB1289341DDE714D008C0D1C /* Greeting.swift */,
+				FB1289361DDE717A008C0D1C /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FB73DBF21DDF61C100116AD0 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				FB73DBF31DDF622100116AD0 /* Router.swift */,
+				FB73DBF51DDF6E1200116AD0 /* GdaysRequest */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		FB73DBF51DDF6E1200116AD0 /* GdaysRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */,
+			);
+			name = GdaysRequest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB1289231DDE61BC008C0D1C /* Build configuration list for PBXNativeTarget "Gday" */;
 			buildPhases = (
+				1B20BDC2F8AD601ABD1AA37A /* [CP] Check Pods Manifest.lock */,
 				FB1288F71DDE61BC008C0D1C /* Sources */,
 				FB1288F81DDE61BC008C0D1C /* Frameworks */,
 				FB1288F91DDE61BC008C0D1C /* Resources */,
+				F10A91F28AB89C670466D7D7 /* [CP] Embed Pods Frameworks */,
+				EFD14833A63C2C11BD665D58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,13 +334,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B20BDC2F8AD601ABD1AA37A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EFD14833A63C2C11BD665D58 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gday/Pods-Gday-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F10A91F28AB89C670466D7D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gday/Pods-Gday-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB1288F71DDE61BC008C0D1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1289011DDE61BC008C0D1C /* ViewController.swift in Sources */,
 				FB1288FF1DDE61BC008C0D1C /* AppDelegate.swift in Sources */,
+				FB1289311DDE6D49008C0D1C /* Gday.swift in Sources */,
+				FB1289371DDE717A008C0D1C /* User.swift in Sources */,
+				FB73DBF41DDF622100116AD0 /* Router.swift in Sources */,
+				FB12892E1DDE6568008C0D1C /* GdaysViewController.swift in Sources */,
+				FB1289351DDE714D008C0D1C /* Greeting.swift in Sources */,
+				FB73DBF71DDF6E8B00116AD0 /* GdaysRequest.swift in Sources */,
+				FB1289331DDE6D70008C0D1C /* GdayAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +467,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -386,6 +518,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -413,7 +546,9 @@
 		};
 		FB1289241DDE61BC008C0D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BC2CFE2E65283B2C43240A4 /* Pods-Gday.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QMMJTDCUQ3;
 				INFOPLIST_FILE = Gday/Info.plist;
@@ -426,7 +561,9 @@
 		};
 		FB1289251DDE61BC008C0D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87F4F8BEB9ABA54B8DBFDCE1 /* Pods-Gday.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QMMJTDCUQ3;
 				INFOPLIST_FILE = Gday/Info.plist;
@@ -514,6 +651,7 @@
 				FB1289251DDE61BC008C0D1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB1289261DDE61BC008C0D1C /* Build configuration list for PBXNativeTarget "GdayTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +660,7 @@
 				FB1289281DDE61BC008C0D1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB1289291DDE61BC008C0D1C /* Build configuration list for PBXNativeTarget "GdayUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +669,7 @@
 				FB12892B1DDE61BC008C0D1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
