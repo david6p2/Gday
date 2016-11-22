@@ -5,7 +5,7 @@ target 'Gday' do
     pod 'Alamofire', '~> 4.0'
     pod 'AlamofireNetworkActivityIndicator'
     pod 'AlamofireObjectMapper', '~> 4.0'
-    pod 'AlamofireImage'
+    pod 'AlamofireImage', '~> 3.1'
     pod 'SVProgressHUD'
     pod 'TPKeyboardAvoiding'
 
