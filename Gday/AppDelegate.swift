@@ -20,10 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     window?.tintColor = themeColor
-    GdayAPI.listGdays(withDate: Date(), completion: { gdays in
-      print("This are the gdays: \(gdays)")
-      print("This is the Gday Type: \(gdays[0].gdayType) and User: \(gdays[0].user.name) and GreetingType: \(gdays[0].greetings?[0].greetingType)")
-    })
     return true
   }
 

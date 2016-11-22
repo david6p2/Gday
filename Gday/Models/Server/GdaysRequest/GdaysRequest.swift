@@ -27,8 +27,7 @@ struct GdaysRequest {
             completion([Gday]())
             return
           }
-          print(response.result.value ?? "NO RESPONSE RESULT")
-          print(gdays)
+          //print("This are the Gdays: \(gdays)")
           completion(gdays)
           
         case .failure(let error):
