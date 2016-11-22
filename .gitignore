@@ -1,3 +1,5 @@
 .DS_Store
 /PhotoPassDemo/PhotoPassDemo.xcodeproj/project.xcworkspace/xcshareddata/PhotoPassDemo.xccheckout
 .idea/
+project.pbxproj
+Breakpoints_v2.xcbkptlist
