@@ -53,8 +53,8 @@ struct Gday : Mappable  {
   
   //MARK: - Structs & Enums
   struct JSONKey {
-    static let thumbnail = "thumbnail"
-    static let largeImage = "largeImage"
+    static let thumbnailURL = "user.picture_url"
+    static let largeImageURL = "user.picture_url"
     static let gdayId = "gday_id"
     static let created_at = "created_at"
     static let gday_start_date = "gday_start_date"
@@ -72,33 +72,12 @@ struct Gday : Mappable  {
   var gdayType : GdayType!
   var user : User!
   var greetings : [Greeting]?
-  var thumbnail : UIImage?
-  var largeImage : UIImage?
+  var thumbnailURL : URL?
+  var largeImageURL : URL?
   
   
   //MARK: - Initializers
-  /*init (thumbnail:UIImage?,
-        largeImage:UIImage?,
-        gdayId:String,
-        created_at:Date,
-        gday_start_date:Date,
-        gday_finish_date:Date,
-        gdayType:GdayType,
-        user:User,
-        greetings:[Greeting]?)
-  {
-    self.thumbnail = thumbnail
-    self.largeImage = largeImage
-    self.gdayId = gdayId
-    self.created_at = created_at
-    self.gday_start_date = gday_start_date
-    self.gday_finish_date = gday_finish_date
-    self.gdayType = gdayType
-    self.user = user
-    self.greetings = greetings
-  }*/
-  
-  init?(map: Map) {
+   init?(map: Map) {
     guard let _ = map.JSON[JSONKey.gdayId] as? String?,
       let _ = map.JSON[JSONKey.created_at] as? String?,
       let _ = map.JSON[JSONKey.gday_start_date] as? String?,
@@ -111,8 +90,6 @@ struct Gday : Mappable  {
   
   //MARK: - Mappable
   mutating func mapping(map: Map) {
-    thumbnail <- map[JSONKey.thumbnail]
-    largeImage <- map[JSONKey.largeImage]
     gdayId <- map[JSONKey.gdayId]
     created_at <- (map[JSONKey.created_at], DateTransform())
     gday_start_date <- (map[JSONKey.gday_start_date], DateTransform())
@@ -120,12 +97,16 @@ struct Gday : Mappable  {
     gdayType <- (map[JSONKey.gdayType], GdayTypeTransform())
     user <- map[JSONKey.user]
     greetings <- map[JSONKey.greetings]
+    thumbnailURL <- (map[JSONKey.thumbnailURL], URLTransform())
+    largeImageURL <- (map[JSONKey.largeImageURL], URLTransform())
   }
   
   //MARK: - Image Retriving Methods
-  func gdayImageURL(_ size:String = "m") -> URL? {
-    if let url =  URL(string: "https://plus.google.com/u/0/photos/108190374236568857248/albums/profile/6314784854716012578") {
-      return url
+  func imageURLForGday(_ gday:Gday) -> URL? {
+    if let urlString = gday.user.picture_url {
+      if let url =  URL(string: urlString) {
+        return url
+      }
     }
     return nil
   }
@@ -161,9 +142,8 @@ struct Gday : Mappable  {
         completion(self, nil)
       }
     }).resume()
-  }*/
+  }
   
-  //MARK: - Helper Methods
   func sizeToFillWidthOfSize(_ size:CGSize) -> CGSize {
     
     guard let thumbnail = thumbnail else {
@@ -183,7 +163,7 @@ struct Gday : Mappable  {
     }
     
     return returnSize
-  }
+  }*/
   
 }
 

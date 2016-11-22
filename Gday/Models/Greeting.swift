@@ -93,7 +93,7 @@ struct Greeting : Mappable {
   var greetingType : GreetingType!
   var fromUser : User!
   var toUSer : User!
-  var greetingURL : String!
+  var greetingURL : URL?
   
   //MARK: - Initializers
   init?(map: Map){
@@ -102,8 +102,7 @@ struct Greeting : Mappable {
       let _ = map.JSON[JSONKey.created_at] as? String?,
       let _ = map.JSON[JSONKey.greetingType] as? String?,
       let _ = map.JSON[JSONKey.fromUser] as? [String:Any]?,
-      let _ = map.JSON[JSONKey.toUser] as? [String:Any]?,
-      let _ = map.JSON[JSONKey.greetingURL] as? String? else {
+      let _ = map.JSON[JSONKey.toUser] as? [String:Any]?else {
         return nil
     }
     
@@ -117,7 +116,7 @@ struct Greeting : Mappable {
     greetingType <- (map[JSONKey.greetingType], GreetingTypeTransform())
     fromUser <- map[JSONKey.fromUser]
     toUSer <- map[JSONKey.toUser]
-    greetingURL <- map[JSONKey.greetingURL]
+    greetingURL <- (map[JSONKey.greetingURL], URLTransform())
   }
   
   
