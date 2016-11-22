@@ -12,7 +12,7 @@ final class GdaysViewController: UICollectionViewController {
   
   // MARK: - Properties
   fileprivate let reuseIdentifier = "GdayCell"
-  fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+  fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
   fileprivate var gdays = [Gday]()
   fileprivate let gdayAPI = GdayAPI()
   fileprivate let itemsPerRow: CGFloat = 2
@@ -27,10 +27,13 @@ final class GdaysViewController: UICollectionViewController {
     
     GdayAPI.listGdays(withDate: Date(), completion: { gdays in
       self.gdays = gdays
+      self.title = "GDays"
+      self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+      self.navigationController?.navigationBar.barTintColor = UIColor.gray
       self.collectionView?.reloadData()
       
       print("This are the gdays: \(gdays)")
-      print("This is the Gday Type: \(gdays[0].gdayType) and User: \(gdays[0].user.name) and GreetingType: \(gdays[0].greetings?[0].greetingType)")
+      print("This is the Gday Type: \(gdays[0].gdayType) and User: \(gdays[0].user.name) and GreetingType: \(gdays[0].greetings?[0].greetingType) and Picture URL: \(gdays[1].thumbnailURL)")
     })
   }
 }
@@ -38,8 +41,7 @@ final class GdaysViewController: UICollectionViewController {
 // MARK: - Private
 private extension GdaysViewController {
   func gdayForIndexPath(_ indexPath: IndexPath) -> Gday{
-    //return gdays[(indexPath as NSIndexPath).row]
-    return gdays[0]
+    return gdays[(indexPath as NSIndexPath).row]
   }
   
 }
@@ -54,7 +56,7 @@ extension GdaysViewController {
   //2
   override func collectionView(_ collectionView: UICollectionView,
                                numberOfItemsInSection section: Int) -> Int {
-    return (gdays.count * 5)
+    return gdays.count
   }
   
   /*override func collectionView(_ collectionView: UICollectionView,
@@ -83,41 +85,32 @@ extension GdaysViewController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                   for: indexPath) as! GdayCell
     
-    cell.backgroundColor = UIColor.red
-    cell.gdayTypeLabel.text = gdayForIndexPath(indexPath).gdayType.rawValue.capitalized
-    cell.userNameLabel.text = gdayForIndexPath(indexPath).user.name
-    cell.userRoleLabel.text = gdayForIndexPath(indexPath).user.role
+    let gday = gdayForIndexPath(indexPath)
     
+    cell.backgroundColor = UIColor.lightGray
+    cell.gdayTypeLabel.text = gday.gdayType.rawValue.capitalized
+    cell.userNameLabel.text = gday.user.name
+    cell.userRoleLabel.text = gday.user.role
     
-    /*let flickrPhoto = photoForIndexPath(indexPath)
+    //cell.activityIndicator.stopAnimating()
     
-    cell.activityIndicator.stopAnimating()
+    //guard indexPath == largePhotoIndexPath else {
+    //  cell.imageView.image = flickrPhoto.thumbnail
+    //  return cell
+    //}
     
-    guard indexPath == largePhotoIndexPath else {
-      cell.imageView.image = flickrPhoto.thumbnail
-      return cell
+    //guard flickrPhoto.largeImage == nil else {
+    //  cell.imageView.image = flickrPhoto.largeImage
+    //  return cell
+    //}
+    if let imageURL = gday.thumbnailURL {
+      cell.imageView.setImage(withURL: imageURL, placeholderImage: UIImage(named: "placeholder-user"))
     }
     
-    guard flickrPhoto.largeImage == nil else {
-      cell.imageView.image = flickrPhoto.largeImage
-      return cell
-    }
+    //let url = URL(string: "https://lh3.googleusercontent.com/aSs3pvEoLsw7hMpgQvZeC8J8ydTVhcDJqX0-MFrspBiOTNR29d6bH6Fm-__jnTCaNFxCzhqv=w1920-h1080-no")!
+    //let url = URL(string: "https://lh3.googleusercontent.com/C3FucKbkh-Cw_jV4PAxckjk-530jKK7aCZgqTvaRlEfMG3A6dZylx-1HZycgfvD40wvSmXeu8A=w1920-h1080-no")!
+    //cell.imageView.af_setImage(withURL: url, placeholderImage: UIImage(named: "placeholder-user"))
     
-    cell.imageView.image = flickrPhoto.thumbnail
-    cell.activityIndicator.startAnimating()
-    
-    flickrPhoto.loadLargeImage { (loadedFlickrPhoto, error) in
-      cell.activityIndicator.stopAnimating()
-      
-      guard loadedFlickrPhoto.largeImage != nil && error == nil else {
-        return
-      }
-      
-      if let cell = collectionView.cellForItem(at: indexPath) as? FlickrPhotoCell, indexPath == self.largePhotoIndexPath {
-        cell.imageView.image = loadedFlickrPhoto.largeImage
-      }
-    }
-    */
     return cell
   }
   
