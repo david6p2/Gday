@@ -21,6 +21,7 @@
 		FB1289371DDE717A008C0D1C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1289361DDE717A008C0D1C /* User.swift */; };
 		FB73DBF41DDF622100116AD0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF31DDF622100116AD0 /* Router.swift */; };
 		FB73DBF71DDF6E8B00116AD0 /* GdaysRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */; };
+		FBC821F11DE3C4C900EFAE5F /* GdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FB1289361DDE717A008C0D1C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		FB73DBF31DDF622100116AD0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Models/Server/Router.swift; sourceTree = "<group>"; };
 		FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdaysRequest.swift; path = Models/Server/GdaysRequest/GdaysRequest.swift; sourceTree = "<group>"; };
+		FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdayCell.swift; path = Views/GdayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		FB1288FD1DDE61BC008C0D1C /* Gday */ = {
 			isa = PBXGroup;
 			children = (
+				FBC821EF1DE3C49100EFAE5F /* Views */,
 				FB12892F1DDE66A6008C0D1C /* Models */,
 				FB12892C1DDE6520008C0D1C /* ViewControllers */,
 				FB1288FE1DDE61BC008C0D1C /* AppDelegate.swift */,
@@ -197,6 +200,14 @@
 				FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */,
 			);
 			name = GdaysRequest;
+			sourceTree = "<group>";
+		};
+		FBC821EF1DE3C49100EFAE5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +406,7 @@
 				FB1289351DDE714D008C0D1C /* Greeting.swift in Sources */,
 				FB73DBF71DDF6E8B00116AD0 /* GdaysRequest.swift in Sources */,
 				FB1289331DDE6D70008C0D1C /* GdayAPI.swift in Sources */,
+				FBC821F11DE3C4C900EFAE5F /* GdayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
