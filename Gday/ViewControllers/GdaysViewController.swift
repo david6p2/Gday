@@ -36,7 +36,26 @@ final class GdaysViewController: UICollectionViewController {
       print("This is the Gday Type: \(gdays[0].gdayType) and User: \(gdays[0].user.name) and GreetingType: \(gdays[0].greetings?[0].greetingType) and Picture URL: \(gdays[1].thumbnailURL)")
     })
   }
+  
+  // MARK: - Navigation
+  
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if segue.identifier == "ShowGdayGreetings" {
+      let destinationVC: GdayViewController = segue.destination as! GdayViewController
+      if let indexPathRow = self.collectionView?.indexPathsForSelectedItems?[0].row {
+        destinationVC.gday = self.gdays[indexPathRow]
+      }
+    }
+  }
+
 }
+
+
+
 
 // MARK: - Private
 private extension GdaysViewController {
@@ -58,25 +77,6 @@ extension GdaysViewController {
                                numberOfItemsInSection section: Int) -> Int {
     return gdays.count
   }
-  
-  /*override func collectionView(_ collectionView: UICollectionView,
-                               viewForSupplementaryElementOfKind kind: String,
-                               at indexPath: IndexPath) -> UICollectionReusableView {
-    //1
-    switch kind {
-    //2
-    case UICollectionElementKindSectionHeader:
-      //3
-      let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                       withReuseIdentifier: "FlickrPhotoHeaderView",
-                                                                       for: indexPath) as! FlickrPhotoHeaderView
-      headerView.label.text = searches[(indexPath as NSIndexPath).section].searchTerm
-      return headerView
-    default:
-      //4
-      assert(false, "Unexpected element kind")
-    }
-  }*/
   
   //3
   override func collectionView(_ collectionView: UICollectionView,
@@ -106,28 +106,30 @@ extension GdaysViewController {
     if let imageURL = gday.thumbnailURL {
       cell.imageView.setImage(withURL: imageURL, placeholderImage: UIImage(named: "placeholder-user"))
     }
-    
-    //let url = URL(string: "https://lh3.googleusercontent.com/aSs3pvEoLsw7hMpgQvZeC8J8ydTVhcDJqX0-MFrspBiOTNR29d6bH6Fm-__jnTCaNFxCzhqv=w1920-h1080-no")!
-    //let url = URL(string: "https://lh3.googleusercontent.com/C3FucKbkh-Cw_jV4PAxckjk-530jKK7aCZgqTvaRlEfMG3A6dZylx-1HZycgfvD40wvSmXeu8A=w1920-h1080-no")!
-    //cell.imageView.af_setImage(withURL: url, placeholderImage: UIImage(named: "placeholder-user"))
-    
     return cell
   }
   
+  /*
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+    let pageViewController =
+      GdayViewController(collectionViewLayout: pageViewControllerLayout(), currentIndexPath:indexPath, withGday: gdayForIndexPath(indexPath))
+    navigationController!.pushViewController(pageViewController, animated: true)
+  }
+ 
   
-/*
-  override func collectionView(_ collectionView: UICollectionView,
-                               moveItemAt sourceIndexPath: IndexPath,
-                               to destinationIndexPath: IndexPath) {
-    
-    var sourceResults = searches[(sourceIndexPath as NSIndexPath).section].searchResults
-    let flickrPhoto = sourceResults.remove(at: (sourceIndexPath as NSIndexPath).row)
-    searches[(sourceIndexPath as NSIndexPath).section].searchResults = sourceResults
-    
-    var destinationResults = searches[(destinationIndexPath as NSIndexPath).section].searchResults
-    destinationResults.insert(flickrPhoto, at: (destinationIndexPath as NSIndexPath).row)
-    searches[(destinationIndexPath as NSIndexPath).section].searchResults = destinationResults
-  }*/
+  func pageViewControllerLayout () -> UICollectionViewFlowLayout {
+    let flowLayout = UICollectionViewFlowLayout()
+    let itemSize  = self.navigationController!.isNavigationBarHidden ?
+      CGSize(width: screenWidth, height: screenHeight+20) : CGSize(width: screenWidth, height: screenHeight-navigationHeaderAndStatusbarHeight)
+    flowLayout.itemSize = itemSize
+    flowLayout.minimumLineSpacing = 0
+    flowLayout.minimumInteritemSpacing = 0
+    flowLayout.scrollDirection = .horizontal
+    return flowLayout
+  }
+ */
+  
+  
 }
 
 
