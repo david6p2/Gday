@@ -46,8 +46,8 @@ final class GdaysViewController: UICollectionViewController {
     
     if segue.identifier == "ShowGdayGreetings" {
       let destinationVC: GdayViewController = segue.destination as! GdayViewController
-      if let indexPathRow = self.collectionView?.indexPathsForSelectedItems?[0].row {
-        destinationVC.gday = self.gdays[indexPathRow]
+      if let indexPath = self.collectionView?.indexPathsForSelectedItems?[0] {
+        destinationVC.gday = self.gdayForIndexPath(indexPath)
       }
     }
   }
