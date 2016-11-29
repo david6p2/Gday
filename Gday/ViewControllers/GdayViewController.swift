@@ -11,7 +11,7 @@ import UIKit
 
 let greetingPageViewCellIdentify = "greetingPageViewCellIdentify"
 
-class GdayViewController : UICollectionViewController{
+class GdayViewController : UICollectionViewController, UINavigationControllerDelegate {
   
   @IBOutlet var gdayCollectionView: UICollectionView!
   
@@ -34,7 +34,51 @@ class GdayViewController : UICollectionViewController{
     super.viewDidLoad()
   }
   
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    navigationController?.delegate = self
+  }
+  
+  // MARK: - UINavigationControllerDelegate
+  func navigationController(_ navigationController: UINavigationController,
+                            animationControllerFor operation: UINavigationControllerOperation,
+                            from fromVC: UIViewController,
+                            to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    if operation == .pop {
+      let animator = PushFromCollectionViewTransitionAnimation()
+      animator.presenting = false
+      return animator
+    } else {
+      return nil
+    }
+  }
+  
+  
+  
+  
+}
+
+// MARK: - Private
+private extension GdayViewController {
+  func greetingForIndexPath(_ indexPath: IndexPath) -> Greeting{
+    return (gday?.greetings![(indexPath as NSIndexPath).row])!
+    
+  }
+  
+}
+
+// MARK: - UICollectionViewDataSource
+extension GdayViewController {
+  
+  
+  override func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int{
+    return (self.gday?.greetings?.count)!;
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
     let collectionCell: GreetingCell = collectionView.dequeueReusableCell(withReuseIdentifier: greetingPageViewCellIdentify, for: indexPath) as! GreetingCell
     if let imageURL = self.greetingForIndexPath(indexPath).greetingURL {
       collectionCell.imageView.setImage(withURL: imageURL, placeholderImage: UIImage(named: "placeholder-user"))
@@ -45,19 +89,6 @@ class GdayViewController : UICollectionViewController{
     }
     collectionCell.setNeedsLayout()
     return collectionCell
-  }
-  
-  override func collectionView(_ collectionView: UICollectionView,
-                               numberOfItemsInSection section: Int) -> Int{
-    return (self.gday?.greetings?.count)!;
-  }
-}
-
-// MARK: - Private
-private extension GdayViewController {
-  func greetingForIndexPath(_ indexPath: IndexPath) -> Greeting{
-    return (gday?.greetings![(indexPath as NSIndexPath).row])!
-    
   }
   
 }

@@ -8,9 +8,11 @@
 
 import UIKit
 
-final class GdaysViewController: UICollectionViewController {
+final class GdaysViewController: UICollectionViewController, UINavigationControllerDelegate {
   
   // MARK: - Properties
+  var lastSelectedIndexPath: IndexPath?
+  
   fileprivate let reuseIdentifier = "GdayCell"
   fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
   fileprivate var gdays = [Gday]()
@@ -20,6 +22,11 @@ final class GdaysViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupViewController()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.delegate = self
   }
   
   //MARK: - Setup
@@ -49,6 +56,21 @@ final class GdaysViewController: UICollectionViewController {
       if let indexPath = self.collectionView?.indexPathsForSelectedItems?[0] {
         destinationVC.gday = self.gdayForIndexPath(indexPath)
       }
+    }
+  }
+  
+  // MARK: - UINavigationControllerDelegate
+  func navigationController(_ navigationController: UINavigationController,
+                            animationControllerFor operation: UINavigationControllerOperation,
+                            from fromVC: UIViewController,
+                            to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    
+    if operation == .push {
+      let animator = PushFromCollectionViewTransitionAnimation()
+      animator.presenting = true
+      return animator
+    } else {
+      return nil
     }
   }
 
@@ -109,14 +131,16 @@ extension GdaysViewController {
     return cell
   }
   
-  /*
-  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-    let pageViewController =
+  
+  override func collectionView(_ collectionView: UICollectionView,
+                               didSelectItemAt indexPath: IndexPath){
+    /*let pageViewController =
       GdayViewController(collectionViewLayout: pageViewControllerLayout(), currentIndexPath:indexPath, withGday: gdayForIndexPath(indexPath))
-    navigationController!.pushViewController(pageViewController, animated: true)
+    navigationController!.pushViewController(pageViewController, animated: true)*/
+    lastSelectedIndexPath = indexPath
   }
  
-  
+  /*
   func pageViewControllerLayout () -> UICollectionViewFlowLayout {
     let flowLayout = UICollectionViewFlowLayout()
     let itemSize  = self.navigationController!.isNavigationBarHidden ?

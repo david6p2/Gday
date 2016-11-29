@@ -25,6 +25,7 @@
 		FB44B7AB1DE7585600B12F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB44B7A91DE7585600B12F41 /* Main.storyboard */; };
 		FB73DBF41DDF622100116AD0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF31DDF622100116AD0 /* Router.swift */; };
 		FB73DBF71DDF6E8B00116AD0 /* GdaysRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */; };
+		FB9210DF1DEDEAB9005BFB98 /* PushFromCollectionViewTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9210DE1DEDEAB9005BFB98 /* PushFromCollectionViewTransitionAnimation.swift */; };
 		FBC821F11DE3C4C900EFAE5F /* GdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		FB44B7AA1DE7585600B12F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB73DBF31DDF622100116AD0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Models/Server/Router.swift; sourceTree = "<group>"; };
 		FB73DBF61DDF6E8B00116AD0 /* GdaysRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdaysRequest.swift; path = Models/Server/GdaysRequest/GdaysRequest.swift; sourceTree = "<group>"; };
+		FB9210DE1DEDEAB9005BFB98 /* PushFromCollectionViewTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushFromCollectionViewTransitionAnimation.swift; path = Views/TransitionAnimations/PushFromCollectionViewTransitionAnimation.swift; sourceTree = "<group>"; };
 		FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GdayCell.swift; path = Views/GdayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,9 +239,18 @@
 			name = GdaysRequest;
 			sourceTree = "<group>";
 		};
+		FB9210DD1DEDEA48005BFB98 /* TransitionAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				FB9210DE1DEDEAB9005BFB98 /* PushFromCollectionViewTransitionAnimation.swift */,
+			);
+			name = TransitionAnimations;
+			sourceTree = "<group>";
+		};
 		FBC821EF1DE3C49100EFAE5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FB9210DD1DEDEA48005BFB98 /* TransitionAnimations */,
 				FBC821F01DE3C4C900EFAE5F /* GdayCell.swift */,
 				FB44B7A41DE749F200B12F41 /* GreetingCell.swift */,
 			);
@@ -436,6 +447,7 @@
 			files = (
 				FB1288FF1DDE61BC008C0D1C /* AppDelegate.swift in Sources */,
 				FB0C0EED1DE4AFAB006E278D /* UIImageView+Network.swift in Sources */,
+				FB9210DF1DEDEAB9005BFB98 /* PushFromCollectionViewTransitionAnimation.swift in Sources */,
 				FB1289311DDE6D49008C0D1C /* Gday.swift in Sources */,
 				FB1289371DDE717A008C0D1C /* User.swift in Sources */,
 				FB73DBF41DDF622100116AD0 /* Router.swift in Sources */,
